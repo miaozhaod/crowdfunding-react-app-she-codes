@@ -8,7 +8,7 @@ import ProjectPage from "./pages/ProjectPage";
 function App() {
   return (
     <Router>
-      <div>
+      <div id="project-list">
         <Nav />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
