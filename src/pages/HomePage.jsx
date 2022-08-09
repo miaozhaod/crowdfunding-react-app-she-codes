@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProjectCard from "../components/ProjectaCard";
+import ProjectCard from "../components/ProjectCard";
 
 export default function HomePage() {
   const [projectData, setProjectData] = useState([]);
