@@ -30,9 +30,9 @@ export default function ProjectPage() {
       <h3>Pledges:</h3>
       <ul>
         {projectData.pledges
-          ? projectData.pledges.map((pledgeData, key) => {
+          ? projectData.pledges.map((pledgeData, index) => {
               return (
-                <li>
+                <li key={index}>
                   {pledgeData.amount} from {pledgeData.supporter}
                 </li>
               );
