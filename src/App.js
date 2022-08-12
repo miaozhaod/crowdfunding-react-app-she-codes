@@ -5,17 +5,19 @@ import Nav from "./components/Nav";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
-      <div id="project-list">
+      <div id="App">
         <Nav />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/project/:id" element={<ProjectPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
