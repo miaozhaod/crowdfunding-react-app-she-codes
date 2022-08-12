@@ -10,7 +10,7 @@ export default function Nav() {
     <nav>
       <Container variant="nav">
         <Link to="/">
-          <img src={Logo} alt="PIXELFOTO_logo" />
+          <img src={Logo} alt="PIXELFOTO_logo" className="header-logo" />
         </Link>
         <div className="menu_items_wrapper">
           <Link to="/" className="menu_item_home">
