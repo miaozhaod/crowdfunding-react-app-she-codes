@@ -29,7 +29,8 @@ export default function Footer() {
               </div>
             </div>
             <div className="nav-section-follow-us">
-              <p className="nav-section-title">Follow Us</p>
+              <p className="nav-section-title">Made by Miao</p>
+              <div></div>
             </div>
           </nav>
         </div>
