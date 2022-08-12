@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.bg {
+  background-color: #fbfcfe;
+}
+
 .wrapper {
   display: flex;
   width: 90%;
@@ -15,4 +19,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 0;
+}
+
+.footer {
+  flex-direction: column;
+  padding: 5rem 0 3rem 0;
 }

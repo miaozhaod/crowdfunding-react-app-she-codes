@@ -1,16 +1,16 @@
 import React from "react";
 import "./Container.css";
 
-export default function Container({ children, variant }) {
+export default function Container({ children, bg, variant }) {
   return (
-    <div className="container">
+    <div className={`container ${bg ? "bg" : ""}`}>
       <div
         className={`wrapper ${
           variant === "nav"
             ? "nav"
-            : variant === "section"
-            ? "section"
-            : "footer"
+            : variant === "footer"
+            ? "footer"
+            : "section"
         }`}
       >
         {children}
