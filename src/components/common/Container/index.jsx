@@ -10,6 +10,8 @@ export default function Container({ children, bg, variant }) {
             ? "nav"
             : variant === "footer"
             ? "footer"
+            : variant === "banner"
+            ? "banner"
             : "section"
         }`}
       >
