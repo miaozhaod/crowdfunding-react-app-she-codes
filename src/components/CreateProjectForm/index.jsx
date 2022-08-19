@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../common/Form/Input";
@@ -7,7 +6,7 @@ import SubmitButton from "../common/Form/SubmitButton";
 export default function LoginForm() {
   const navigate = useNavigate();
   const [projectDetails, setProjectDetails] = useState({
-    title: "Test Project",
+    title: "Another Test Project",
     description: "This is a test project",
     location: "Brisbane",
     goal: 1000,
@@ -15,12 +14,12 @@ export default function LoginForm() {
       "https://images.unsplash.com/photo-1660516323476-99e31f09c544?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
     date_due: "2022-09-20T14:28:23.382748Z",
     is_open: true,
-    date_created: "2022-06-20T14:28:23.382748Z",
+    date_created: new Date(),
   });
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitResult, setSubmitResult] = useState("");
   const token = window.localStorage.getItem("token");
-  const loginFormInputFields = [
+  const createProjectFormInputFields = [
     {
       type: "text",
       id: "title",
@@ -34,16 +33,16 @@ export default function LoginForm() {
       placeholder: "Describe your exhibition ...",
     },
     {
-      type: "text",
-      id: "location",
-      label: "Location",
-      placeholder: "Where are you planning to open your exhibition ...",
-    },
-    {
       type: "number",
       id: "goal",
       label: "Goal",
       placeholder: "What's your crowdfunding goal ...",
+    },
+    {
+      type: "date",
+      id: "date_due",
+      label: "Due date",
+      placeholder: "Enter a due date ...",
     },
     {
       type: "text",
@@ -51,28 +50,11 @@ export default function LoginForm() {
       label: "Image",
       placeholder: "Upload an image ...",
     },
-    {
-      type: "text",
-      id: "date_due",
-      label: "Due date",
-      placeholder: "Enter a due date ...",
-    },
-    {
-      type: "text",
-      id: "is_open",
-      label: "Status",
-      placeholder: "Enter a due date ...",
-    },
-    {
-      type: "text",
-      id: "date_created",
-      label: "Created Date",
-      placeholder: "Enter a created date ...",
-    },
   ];
 
   const handleChange = event => {
     const { id, value } = event.target;
+
     let passValue;
     id === "goal" ? (passValue = parseInt(value)) : (passValue = value);
     setProjectDetails({ ...projectDetails, [id]: passValue });
@@ -101,7 +83,7 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      {loginFormInputFields.map((field, index) => {
+      {createProjectFormInputFields.map((field, index) => {
         const { type, id, label, placeholder } = field;
         return (
           <Input
