@@ -14,7 +14,6 @@ export default function HomePage() {
         return res.json();
       })
       .then(data => {
-        console.log("data is:", data);
         setProjectData(data);
       })
       .catch(err => {
@@ -23,17 +22,21 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
+    <>
       <Container bg={true} variant="banner">
         <Banner heading="Explore Exhibitions">Children</Banner>
       </Container>
       <Container>
-        <GridThreeCol>
-          {projectData.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </GridThreeCol>
+        {projectData.length > 0 ? (
+          <GridThreeCol>
+            {projectData.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </GridThreeCol>
+        ) : (
+          "Loading..."
+        )}
       </Container>
-    </div>
+    </>
   );
 }
