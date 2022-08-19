@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/img/logo-mono.svg";
-import Container from "../common/Container";
+import Logo from "../../../assets/img/logo-mono.svg";
+import Container from "../Container";
 import "./Footer.css";
 
 export default function Footer() {

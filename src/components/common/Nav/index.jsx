@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/img/logo.svg";
-import Container from "../common/Container";
-import RoundButton from "../common/RoundButton";
+import Logo from "../../../assets/img/logo.svg";
+import Container from "../Container";
+import RoundButton from "../RoundButton";
 import "./Nav.css";
 
 export default function Nav() {
