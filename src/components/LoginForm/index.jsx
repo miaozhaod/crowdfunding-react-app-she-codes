@@ -83,7 +83,7 @@ export default function LoginForm() {
       <SubmitButton
         variant="primary"
         submitMessage={submitMessage}
-        result={setSubmitResult}
+        result={submitResult}
       >
         Login
       </SubmitButton>
