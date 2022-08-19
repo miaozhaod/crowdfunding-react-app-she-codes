@@ -5,6 +5,7 @@ import Nav from "./components/common/Nav";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/LoginPage";
+import EditProfilePage from "./pages/EditProfilePage";
 import Footer from "./components/common/Footer";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/project/:id" element={<ProjectPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/edit-profile" element={<EditProfilePage />} />
         </Routes>
         <Footer />
       </div>
