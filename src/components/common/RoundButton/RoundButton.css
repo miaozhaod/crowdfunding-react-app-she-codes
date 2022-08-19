@@ -1,0 +1,22 @@
+button {
+  cursor: pointer;
+  text-transform: capitalize;
+  width: fit-content;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid #598edc;
+  border-radius: 999px;
+  transition: all 0.5s;
+}
+button:hover {
+  box-shadow: 2px 2px 2px #1f1f1f41;
+}
+
+.primary {
+  background-color: #598edc;
+  color: #fff;
+}
+
+.secondary {
+  background-color: #fff;
+  color: #598edc;
+}

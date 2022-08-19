@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Banner from "../components/common/Banner";
+import Container from "../components/common/Container";
+import GridThreeCol from "../components/common/GridThreeCol";
 import ProjectCard from "../components/ProjectCard";
 
 export default function HomePage() {
@@ -21,9 +24,16 @@ export default function HomePage() {
 
   return (
     <div>
-      {projectData.map((project, index) => (
-        <ProjectCard key={index} project={project} />
-      ))}
+      <Container bg={true} variant="banner">
+        <Banner heading="Explore Exhibitions">Children</Banner>
+      </Container>
+      <Container>
+        <GridThreeCol>
+          {projectData.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
+        </GridThreeCol>
+      </Container>
     </div>
   );
 }
