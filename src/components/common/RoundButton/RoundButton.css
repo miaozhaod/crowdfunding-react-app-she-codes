@@ -1,4 +1,4 @@
-button {
+.round-button {
   cursor: pointer;
   text-transform: capitalize;
   width: fit-content;
@@ -7,7 +7,7 @@ button {
   border-radius: 999px;
   transition: all 0.5s;
 }
-button:hover {
+.round-button:hover {
   box-shadow: 2px 2px 2px #1f1f1f41;
 }
 
