@@ -56,7 +56,10 @@ export default function LoginForm() {
       console.log("login response data: ... ", data);
       if (data.token) {
         window.localStorage.setItem("token", data.token);
+        window.localStorage.setItem("user_id", data.id);
+        window.localStorage.setItem("login", true);
         navigate("/");
+        window.location.reload();
       } else {
         const { non_field_errors } = data;
         setSubmitMessage(non_field_errors[0]);
