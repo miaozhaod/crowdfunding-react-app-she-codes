@@ -7,3 +7,7 @@
 .form-field input {
   height: 2rem;
 }
+
+.form-field textarea {
+  height: 5rem;
+}

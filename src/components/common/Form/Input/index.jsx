@@ -6,12 +6,21 @@ export default function Input({ type, id, label, placeholder, onChange }) {
     <>
       <div className="form-field">
         <label htmlFor={id}>{label}</label>
-        <input
-          type={type}
-          id={id}
-          onChange={onChange}
-          placeholder={placeholder}
-        />
+        {type === "textarea" ? (
+          <textarea
+            type={type}
+            id={id}
+            onChange={onChange}
+            placeholder={placeholder}
+          />
+        ) : (
+          <input
+            type={type}
+            id={id}
+            onChange={onChange}
+            placeholder={placeholder}
+          />
+        )}
       </div>
     </>
   );
