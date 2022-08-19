@@ -22,3 +22,11 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.showDropdown {
+  display: flex;
+}
+
+.hideDropdown {
+  display: none;
+}
