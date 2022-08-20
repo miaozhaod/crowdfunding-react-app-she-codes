@@ -21,6 +21,9 @@
   background-color: #235d90;
   color: #fff;
 }
+.primary-dark a {
+  color: #fff;
+}
 
 .secondary {
   background-color: #fff;
