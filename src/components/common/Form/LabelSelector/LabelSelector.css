@@ -1,0 +1,12 @@
+.label-selector {
+  background-color: #c7c8ca;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  width: fit-content;
+  color: #fff;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #598edc;
+}
