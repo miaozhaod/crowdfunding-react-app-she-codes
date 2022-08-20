@@ -69,9 +69,12 @@ export default function ProjectPageContent({ projectData }) {
           <div>
             {leftDays > 0 ? (
               <>
-                <SubmitButton variant="primary-dark">
-                  <Link to={`/create-pledge/${id}`}>Pledge Now!</Link>
-                </SubmitButton>
+                <Link to={`/create-pledge/${id}`}>
+                  <SubmitButton variant="primary-dark">
+                    Pledge Now!
+                  </SubmitButton>
+                </Link>
+
                 <p>
                   This exhibition will only be held if it reaches its goal by
                   the end of {new Date(date_due).toLocaleDateString()}
