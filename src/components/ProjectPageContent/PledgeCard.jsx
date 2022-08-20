@@ -15,8 +15,9 @@ export default function PledgeCard({ pledgeData }) {
 
   return (
     <div className="pledge-card">
-      <div>
+      <div className="pledge-card-avatar-div">
         <img
+          className="pledge-card-avatar-img"
           src={supporterAvatar}
           alt={supporterName}
           onError={useDefaultAvatar}
