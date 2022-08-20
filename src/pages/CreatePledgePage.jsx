@@ -23,7 +23,7 @@ export default function CreatePledgePage() {
         </Banner>
       </Container>
       <Container>
-        <CreatePledgeForm />
+        <CreatePledgeForm project_id={id} />
       </Container>
     </>
   );
