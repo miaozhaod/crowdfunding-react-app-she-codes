@@ -12,7 +12,11 @@ export default function SubmitButton({
       <button
         type="submit"
         className={`submit-button ${
-          variant === "primary" ? "primary" : "secondary"
+          variant === "primary"
+            ? "primary"
+            : variant === "primary-dark"
+            ? "primary-dark"
+            : "secondary"
         }`}
       >
         {children}
