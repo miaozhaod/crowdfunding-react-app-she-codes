@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/img/logo.svg";
-import DefaultAvatar from "../../../assets/img/default-avatar.svg";
+import { useDefaultAvatar } from "../../../services/useDefaultAvatar";
 import Container from "../Container";
 import RoundButton from "../RoundButton";
 import "./Nav.css";
@@ -51,8 +51,9 @@ export default function Nav() {
             <div className="menu_item_auth_group">
               <Link to="/edit-profile">
                 <img
-                  src={navAvatar ? navAvatar : DefaultAvatar}
+                  src={navAvatar}
                   alt={`${navUsername}`}
+                  onError={useDefaultAvatar}
                   className="nav-avatar-image"
                 />
               </Link>
