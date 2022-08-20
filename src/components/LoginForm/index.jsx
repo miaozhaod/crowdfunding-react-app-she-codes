@@ -44,10 +44,6 @@ export default function LoginForm() {
         body: JSON.stringify(credentials),
       }
     );
-    // console.log("login request body", JSON.stringify(credentials));
-    // console.log("login response", response);
-    // console.log("login response json", response.json());
-
     return response.json();
   };
 
