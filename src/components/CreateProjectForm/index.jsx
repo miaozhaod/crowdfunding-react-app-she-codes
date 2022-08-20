@@ -9,7 +9,7 @@ import {
 } from "./constants";
 import "./CreateProjectForm.css";
 
-export default function LoginForm() {
+export default function CreateProjectForm() {
   const navigate = useNavigate();
   const token = window.localStorage.getItem("token");
   const [projectDetails, setProjectDetails] = useState({

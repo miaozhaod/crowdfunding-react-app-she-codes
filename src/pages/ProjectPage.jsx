@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getProjectById } from "../services/getProjectById";
 import { getUserById } from "../services/getUserById";
 import Container from "../components/common/Container";
 import Banner from "../components/common/Banner";
@@ -12,15 +13,10 @@ export default function ProjectPage() {
   const [ownerName, setOwnerName] = useState("");
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setOwnerId(data.owner);
-        setProjectData(data);
-      })
-      .catch(err => console.log("err", err));
+    getProjectById(id).then(data => {
+      setOwnerId(data.owner);
+      setProjectData(data);
+    });
   }, [id]);
 
   useEffect(() => {
@@ -29,7 +25,6 @@ export default function ProjectPage() {
     });
   }, [ownerId]);
 
-  console.log("projectData", projectData);
   const { title, location } = projectData;
   return (
     <>
