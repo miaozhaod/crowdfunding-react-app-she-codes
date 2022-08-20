@@ -16,7 +16,9 @@ export default function ProjectCard({ project }) {
         setOwnerName(data.username);
       })
       .catch(err => console.log("user err", err));
+  }, [owner]);
 
+  useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`)
       .then(res => {
         return res.json();
@@ -35,7 +37,7 @@ export default function ProjectCard({ project }) {
         setPledgeStatus(((pledgeSum / goal) * 100).toFixed(0));
       })
       .catch(err => console.log("project err", err));
-  }, [project]);
+  }, [id]);
 
   return (
     <div className="project-card-container">
@@ -52,8 +54,8 @@ export default function ProjectCard({ project }) {
           </div>
         </div>
         <div className="project-owner-n-location">
-          <p>{ownerName}</p>
-          <p>{location}</p>
+          <p>{ownerName ? ownerName : "fetching..."}</p>
+          <p>{location ? location : "fetching..."}</p>
         </div>
       </Link>
     </div>
