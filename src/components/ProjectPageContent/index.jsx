@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ProjectPageContent.css";
 import SubmitButton from "../common/Form/SubmitButton";
 import PledgeCard from "./PledgeCard";
 
 export default function ProjectPageContent({ projectData }) {
-  const { description, image, title, goal, date_due, pledges } = projectData;
+  const { id, description, image, title, goal, date_due, pledges } =
+    projectData;
 
   let totalPledgesAmount;
   let numberOfUsersPledged;
@@ -67,7 +69,9 @@ export default function ProjectPageContent({ projectData }) {
           <div>
             {leftDays > 0 ? (
               <>
-                <SubmitButton variant="primary-dark">Pledge Now!</SubmitButton>
+                <SubmitButton variant="primary-dark">
+                  <Link to={`/create-pledge/${id}`}>Pledge Now!</Link>
+                </SubmitButton>
                 <p>
                   This exhibition will only be held if it reaches its goal by
                   the end of {new Date(date_due).toLocaleDateString()}
