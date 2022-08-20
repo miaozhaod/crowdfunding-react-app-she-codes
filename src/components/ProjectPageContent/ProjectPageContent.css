@@ -60,3 +60,26 @@
   background-color: #235d90;
   border-radius: 5rem;
 }
+
+.project-page-content-project-description,
+.project-page-content-pledges {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-page-content-pledges-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.pledge-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pledge-card-supporter {
+  font-weight: 600;
+  color: #235d90;
+}

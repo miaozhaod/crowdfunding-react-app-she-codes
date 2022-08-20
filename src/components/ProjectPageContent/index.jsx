@@ -1,10 +1,11 @@
 import React from "react";
 import "./ProjectPageContent.css";
 import SubmitButton from "../common/Form/SubmitButton";
+import PledgeCard from "./PledgeCard";
 
 export default function ProjectPageContent({ projectData }) {
   console.log("projectData", projectData);
-  const { image, title, goal, date_due, pledges } = projectData;
+  const { description, image, title, goal, date_due, pledges } = projectData;
 
   let totalPledgesAmount;
   let numberOfUsersPledged;
@@ -82,19 +83,19 @@ export default function ProjectPageContent({ projectData }) {
           </div>
         </div>
       </div>
+      <div className="project-page-content-project-description">
+        <h3>Project Description</h3>
+        <p>{description}</p>
+      </div>
       <div className="project-page-content-pledges">
-        <h3>Pledges:</h3>
-        <ul>
+        <h3>Pledges Received</h3>
+        <div className="project-page-content-pledges-cards">
           {projectData.pledges
             ? projectData.pledges.map((pledgeData, index) => {
-                return (
-                  <li key={index}>
-                    {pledgeData.amount} from {pledgeData.supporter}
-                  </li>
-                );
+                return <PledgeCard key={index} pledgeData={pledgeData} />;
               })
             : "No Pledges"}
-        </ul>
+        </div>
       </div>
     </div>
   );
