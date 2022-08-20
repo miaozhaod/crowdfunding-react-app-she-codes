@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/img/logo.svg";
+import DefaultAvatar from "../../../assets/img/default-avatar.svg";
 import Container from "../Container";
 import RoundButton from "../RoundButton";
 import "./Nav.css";
@@ -48,7 +49,13 @@ export default function Nav() {
             </div>
           ) : (
             <div className="menu_item_auth_group">
-              <Link to="/edit-profile"> Edit Profile</Link>
+              <Link to="/edit-profile">
+                <img
+                  src={navAvatar ? navAvatar : DefaultAvatar}
+                  alt={`${navUsername}`}
+                  className="nav-avatar-image"
+                />
+              </Link>
               <Link to="/create-project">
                 <RoundButton variant="primary">Create Project</RoundButton>
               </Link>

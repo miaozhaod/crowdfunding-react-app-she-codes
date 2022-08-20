@@ -23,10 +23,9 @@
   gap: 0.5rem;
 }
 
-.showDropdown {
-  display: flex;
-}
-
-.hideDropdown {
-  display: none;
+.nav-avatar-image {
+  border-radius: 999px;
+  height: 2rem;
+  width: 2rem;
+  object-fit: cover;
 }
