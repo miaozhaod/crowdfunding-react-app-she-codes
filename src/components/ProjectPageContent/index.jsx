@@ -4,7 +4,6 @@ import SubmitButton from "../common/Form/SubmitButton";
 import PledgeCard from "./PledgeCard";
 
 export default function ProjectPageContent({ projectData }) {
-  console.log("projectData", projectData);
   const { description, image, title, goal, date_due, pledges } = projectData;
 
   let totalPledgesAmount;
