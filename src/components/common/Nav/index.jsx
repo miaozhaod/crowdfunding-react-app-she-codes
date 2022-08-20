@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getUserById } from "../../../services/getUserById";
 import Logo from "../../../assets/img/logo.svg";
 import { useDefaultAvatar } from "../../../services/useDefaultAvatar";
 import Container from "../Container";
@@ -14,14 +15,7 @@ export default function Nav() {
   const userId = window.localStorage.getItem("user_id");
 
   if (userId) {
-    const getUser = async () => {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/users/${userId}`
-      );
-      return response.json();
-    };
-
-    getUser().then(data => {
+    getUserById(userId).then(data => {
       const { avatar, username } = data;
       setNavAvatar(avatar);
       setNavUsername(username);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getUserById } from "../../services/getUserById";
 import "./ProjectCard.css";
 
 export default function ProjectCard({ project }) {
@@ -8,14 +9,9 @@ export default function ProjectCard({ project }) {
   const [pledgeStatus, setPledgeStatus] = useState("");
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/users/${owner}`)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setOwnerName(data.username);
-      })
-      .catch(err => console.log("user err", err));
+    getUserById(owner).then(data => {
+      setOwnerName(data.username);
+    });
   }, [owner]);
 
   useEffect(() => {

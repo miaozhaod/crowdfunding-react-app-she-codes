@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getUserById } from "../services/getUserById";
 import Container from "../components/common/Container";
 import Banner from "../components/common/Banner";
 import ProjectPageContent from "../components/ProjectPageContent";
@@ -23,14 +24,9 @@ export default function ProjectPage() {
   }, [id]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/users/${ownerId}`)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setOwnerName(data.username);
-      })
-      .catch(err => console.log("user err", err));
+    getUserById(ownerId).then(data => {
+      setOwnerName(data.username);
+    });
   }, [ownerId]);
 
   console.log("projectData", projectData);

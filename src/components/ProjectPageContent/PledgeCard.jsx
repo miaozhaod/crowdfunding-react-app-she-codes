@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDefaultAvatar } from "../../services/useDefaultAvatar";
-
+import { getUserById } from "../../services/getUserById";
 export default function PledgeCard({ pledgeData }) {
   const { amount, anonymous, comment, supporter } = pledgeData;
   const [supporterName, setSupportorName] = useState("");
   const [supporterAvatar, setSupporterAvatar] = useState("");
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/users/${supporter}`)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setSupportorName(data.username);
-        setSupporterAvatar(data.avatar);
-      })
-      .catch(err => console.log("user err", err));
+    getUserById(supporter).then(data => {
+      setSupportorName(data.username);
+      setSupporterAvatar(data.avatar);
+    });
   }, [supporter]);
 
   return (
