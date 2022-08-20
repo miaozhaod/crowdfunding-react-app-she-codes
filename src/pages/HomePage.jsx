@@ -24,7 +24,9 @@ export default function HomePage() {
   return (
     <>
       <Container bg={true} variant="banner">
-        <Banner heading="Explore Exhibitions">Children</Banner>
+        <Banner heading="Explore Exhibitions">
+          Have a look into our amazing exhibitions
+        </Banner>
       </Container>
       <Container>
         {projectData.length > 0 ? (
