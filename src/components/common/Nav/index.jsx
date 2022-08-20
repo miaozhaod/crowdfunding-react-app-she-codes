@@ -43,7 +43,7 @@ export default function Nav() {
               <Link to="/login">
                 <RoundButton variant="primary">Login</RoundButton>
               </Link>
-              <Link to="/login">
+              <Link to="/sign-up">
                 <RoundButton variant="secondary">Sign up</RoundButton>
               </Link>
             </div>
