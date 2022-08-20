@@ -25,3 +25,10 @@ a {
   color: #3e3e40;
   text-decoration: none;
 }
+
+form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
