@@ -8,7 +8,7 @@ export default function SubmitButton({
   result,
 }) {
   return (
-    <>
+    <div>
       <button
         type="submit"
         className={`submit-button ${
@@ -24,6 +24,6 @@ export default function SubmitButton({
       >
         {submitMessage}
       </p>
-    </>
+    </div>
   );
 }
