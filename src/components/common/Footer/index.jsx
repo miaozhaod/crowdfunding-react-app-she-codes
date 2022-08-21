@@ -7,6 +7,7 @@ import "./Footer.css";
 export default function Footer() {
   const navigate = useNavigate();
   const loginStatus = window.localStorage.getItem("login");
+  const userId = window.localStorage.getItem("user_id");
 
   return (
     <footer>
@@ -37,7 +38,7 @@ export default function Footer() {
                 <>
                   <p className="nav-section-title">Start Exploring</p>
                   <div className="nav-section-menu">
-                    <Link to="/edit-profile">Edit profile</Link>
+                    <Link to={`/edit-profile/${userId}`}>Edit profile</Link>
                     <Link to="/create-project">Create Project</Link>
                     <p
                       onClick={() => {

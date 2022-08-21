@@ -23,7 +23,7 @@ function App() {
           <Route path="/create-pledge/:id" element={<CreatePledgePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
-          <Route path="/edit-profile" element={<EditProfilePage />} />
+          <Route path="/edit-profile/:id" element={<EditProfilePage />} />
         </Routes>
         <Footer />
       </div>
