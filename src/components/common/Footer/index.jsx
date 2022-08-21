@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../assets/img/logo-mono.svg";
 import Container from "../Container";
 import "./Footer.css";
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const loginStatus = window.localStorage.getItem("login");
+
   return (
     <footer>
       <Container bg={true} variant="footer">
@@ -18,15 +21,36 @@ export default function Footer() {
           </div>
           <nav className="nav-section">
             <div>
-              <p className="nav-section-title">Get Started</p>
-              <div className="nav-section-menu">
-                <Link to="/login" className="nav-section-menu-item">
-                  Login
-                </Link>
-                <Link to="/login" className="nav-section-menu-item">
-                  Sign up
-                </Link>
-              </div>
+              {!loginStatus ? (
+                <>
+                  <p className="nav-section-title">Get Started</p>
+                  <div className="nav-section-menu">
+                    <Link to="/login" className="nav-section-menu-item">
+                      Login
+                    </Link>
+                    <Link to="/login" className="nav-section-menu-item">
+                      Sign up
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="nav-section-title">Start Exploring</p>
+                  <div className="nav-section-menu">
+                    <Link to="/edit-profile">Edit profile</Link>
+                    <Link to="/create-project">Create Project</Link>
+                    <p
+                      onClick={() => {
+                        localStorage.clear();
+                        navigate("/");
+                        window.location.reload();
+                      }}
+                    >
+                      Log out
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
             <div className="nav-section-follow-us">
               <p className="nav-section-title">Made by Miao</p>
