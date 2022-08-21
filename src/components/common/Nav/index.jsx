@@ -43,7 +43,7 @@ export default function Nav() {
             </div>
           ) : (
             <div className="menu_item_auth_group">
-              <Link to={`/edit-profile/${userId}`}>
+              <Link to={`/profile/${userId}`}>
                 <img
                   src={navAvatar}
                   alt={`${navUsername}`}
