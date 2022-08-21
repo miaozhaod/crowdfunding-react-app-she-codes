@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DefaultAvatar from "../../assets/img/default-avatar.svg";
 import { useDefaultAvatar } from "../../services/useDefaultAvatar";
 import { getUserById } from "../../services/getUserById";
 export default function PledgeCard({ pledgeData }) {
@@ -18,7 +19,7 @@ export default function PledgeCard({ pledgeData }) {
       <div className="pledge-card-avatar-div">
         <img
           className="pledge-card-avatar-img"
-          src={supporterAvatar}
+          src={anonymous ? DefaultAvatar : supporterAvatar}
           alt={supporterName}
           onError={useDefaultAvatar}
         />
