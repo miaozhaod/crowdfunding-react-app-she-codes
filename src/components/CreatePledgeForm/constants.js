@@ -1,5 +1,11 @@
 export const createPledgeFormInputFields = [
   {
+    type: "checkbox",
+    id: "anonymous",
+    label: "Pledge anonymously?",
+    placeholder: "Tick the box if you want to pledge anonymously",
+  },
+  {
     type: "number",
     id: "amount",
     label: "Amount",
@@ -11,15 +17,4 @@ export const createPledgeFormInputFields = [
     label: "Comment",
     placeholder: "Leave a comment to your pledge ...",
   },
-];
-
-export const initialLocationStates = [
-  { Adelaide: false },
-  { Brisbane: false },
-  { Canberra: false },
-  { Darwin: false },
-  { Hobart: false },
-  { Melbourne: false },
-  { Perth: false },
-  { Sydney: false },
 ];

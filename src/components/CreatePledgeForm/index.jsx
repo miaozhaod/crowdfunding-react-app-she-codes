@@ -13,15 +13,18 @@ export default function CreatePledgeForm({ project_id }) {
     anonymous: false,
     project_id,
   });
-
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitResult, setSubmitResult] = useState("");
 
   const handleChange = event => {
-    const { id, value } = event.target;
+    const { id } = event.target;
 
     let passValue;
-    id === "amount" ? (passValue = parseInt(value)) : (passValue = value);
+    id === "amount"
+      ? (passValue = parseInt(event.target.value))
+      : id === "anonymous"
+      ? (passValue = event.target.checked)
+      : (passValue = event.target.value);
     setPledgeDetails({ ...pledgeDetails, [id]: passValue });
   };
   const postData = async () => {
