@@ -25,6 +25,11 @@
   color: #fff;
 }
 
+.danger {
+  background-color: #cb504c;
+  color: #fff;
+  border: #cb504c;
+}
 .secondary {
   background-color: #fff;
   color: #598edc;

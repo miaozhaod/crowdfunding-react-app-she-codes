@@ -4,6 +4,7 @@ import "./SubmitButton.css";
 export default function SubmitButton({
   children,
   variant,
+  onClick,
   submitMessage,
   result,
 }) {
@@ -11,11 +12,14 @@ export default function SubmitButton({
     <div>
       <button
         type="submit"
+        onClick={onClick}
         className={`submit-button ${
           variant === "primary"
             ? "primary"
             : variant === "primary-dark"
             ? "primary-dark"
+            : variant === "danger"
+            ? "danger"
             : "secondary"
         }`}
       >
