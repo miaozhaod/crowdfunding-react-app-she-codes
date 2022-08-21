@@ -8,7 +8,7 @@ import CreateProjectPage from "./pages/CreateProjectPage";
 import CreatePledgePage from "./pages/CreatePledgePage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
-import EditProfilePage from "./pages/EditProfilePage";
+import ProfilePage from "./pages/ProfilePage";
 import Footer from "./components/common/Footer";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Route path="/create-pledge/:id" element={<CreatePledgePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
-          <Route path="/edit-profile/:id" element={<EditProfilePage />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
         </Routes>
         <Footer />
       </div>
