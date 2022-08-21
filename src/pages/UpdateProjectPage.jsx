@@ -10,7 +10,9 @@ export default function CreateProjectPage() {
   const [projectData, setProjectData] = useState();
 
   useEffect(() => {
-    getProjectById(id).then(data => setProjectData(data));
+    getProjectById(id).then(data => {
+      setProjectData(data);
+    });
   }, [id]);
 
   return (
@@ -25,7 +27,7 @@ export default function CreateProjectPage() {
         </Banner>
       </Container>
       <Container>
-        <UpdateProjectForm project={projectData} />
+        <UpdateProjectForm />
       </Container>
     </>
   );
