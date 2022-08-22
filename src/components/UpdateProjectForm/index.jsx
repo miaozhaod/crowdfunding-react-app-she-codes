@@ -4,6 +4,7 @@ import SubmitButton from "../common/Form/SubmitButton";
 import "./UpdateProjectForm.css";
 import { getProjectById } from "../../services/getProjectById";
 import { updateProjectById } from "../../services/updateProjectById";
+import Input from "../common/Form/Input";
 
 export default function UpdateProjectForm() {
   const { id } = useParams();
@@ -20,10 +21,13 @@ export default function UpdateProjectForm() {
   }, [id]);
 
   const handleBlur = event => {
-    const { id, value } = event.target;
-    console.log("value:", value);
+    const { id } = event.target;
     let passValue;
-    id === "goal" ? (passValue = parseInt(value)) : (passValue = value);
+    id === "goal"
+      ? (passValue = parseInt(event.target.value))
+      : id === "is_open"
+      ? (passValue = event.target.checked)
+      : (passValue = event.target.value);
     setProjectDetails({ ...projectDetails, [id]: passValue });
   };
 
@@ -53,39 +57,52 @@ export default function UpdateProjectForm() {
     <form onSubmit={handleSubmit} className="create-project-form">
       {projectDetails && (
         <>
-          <input
+          <Input
+            variant="single_underline"
             type="text"
             id="title"
+            label="Title"
             defaultValue={projectDetails.title}
             onBlur={handleBlur}
           />
-          <input
-            type="text"
-            id="decription"
+          <Input
+            variant="single_underline"
+            type="textarea"
+            id="description"
+            label="Description"
             defaultValue={projectDetails.description}
             onBlur={handleBlur}
           />
-          <input
+          <Input
+            variant="single_underline"
             type="text"
             id="image"
+            label="Image"
             defaultValue={projectDetails.image}
             onBlur={handleBlur}
           />
-          <input
+          <Input
+            variant="single_underline"
             type="number"
             id="goal"
+            label="Goal"
             defaultValue={projectDetails.goal}
             onBlur={handleBlur}
           />
-          <input
+          <Input
+            variant="single_underline"
             type="checkbox"
             id="is_open"
+            label="Project Status"
+            placeholder="Untick the box to close the project / Tick the box to open the project"
             defaultChecked={projectDetails.is_open}
             onBlur={handleBlur}
           />
-          <input
+          <Input
+            variant="single_underline"
             type="date"
             id="date_due"
+            label="Due Date"
             defaultValue={
               new Date(projectDetails.date_due).toISOString().split("T")[0]
             }
