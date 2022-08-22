@@ -5,7 +5,7 @@ import SubmitButton from "../common/Form/SubmitButton";
 import PledgeCard from "./PledgeCard";
 
 export default function ProjectPageContent({ projectData }) {
-  const { id, description, image, title, goal, date_due, pledges } =
+  const { id, description, image, title, goal, date_due, is_open, pledges } =
     projectData;
 
   let totalPledgesAmount;
@@ -67,7 +67,7 @@ export default function ProjectPageContent({ projectData }) {
             </div>
           </div>
           <div>
-            {leftDays > 0 ? (
+            {leftDays > 0 && is_open ? (
               <>
                 <Link to={`/create-pledge/${id}`}>
                   <SubmitButton variant="primary-dark">
@@ -80,6 +80,10 @@ export default function ProjectPageContent({ projectData }) {
                   the end of {new Date(date_due).toLocaleDateString()}
                 </p>
               </>
+            ) : !is_open ? (
+              <p>
+                Thanks for your interest, but the author has closed the project
+              </p>
             ) : (
               <p>
                 Thanks for your interest, but this project has due on{" "}
