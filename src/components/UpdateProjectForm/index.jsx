@@ -80,6 +80,7 @@ export default function UpdateProjectForm() {
             label="Image"
             defaultValue={projectDetails.image}
             onBlur={handleBlur}
+            src={projectDetails.image}
           />
           <Input
             variant="single_underline"

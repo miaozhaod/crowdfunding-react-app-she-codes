@@ -96,6 +96,7 @@ export default function CreateProjectForm() {
             label={label}
             placeholder={placeholder}
             onChange={handleChange}
+            src={projectDetails.image}
           />
         );
       })}
