@@ -1,4 +1,5 @@
 import React from "react";
+import Placeholder from "../../../../assets/img/placeholder.svg";
 import "./Input.css";
 
 export default function Input({
@@ -7,6 +8,8 @@ export default function Input({
   id,
   label,
   placeholder,
+  src,
+  alt,
   defaultValue,
   defaultChecked,
   onChange,
@@ -39,6 +42,21 @@ export default function Input({
             />
             <label htmlFor={id}>{placeholder}</label>
           </div>
+        ) : id === "image" ? (
+          <>
+            <div className="input-image-container">
+              <img src={src ? src : Placeholder} alt={id} />
+            </div>
+            <input
+              type={type}
+              id={id}
+              onChange={onChange}
+              onBlur={onBlur}
+              placeholder={placeholder}
+              defaultValue={defaultValue}
+              className={`${variant} === "single_underline" ? "single_underline" : "}`}
+            />
+          </>
         ) : (
           <input
             type={type}

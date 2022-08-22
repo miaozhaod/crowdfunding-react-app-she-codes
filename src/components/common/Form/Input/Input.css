@@ -22,6 +22,13 @@
   gap: 0.5rem;
 }
 
+.input-image-container {
+  width: 100%;
+}
+.input-image-container img {
+  width: 100%;
+}
+
 .single_underline {
   border: 0;
   outline: 0;
