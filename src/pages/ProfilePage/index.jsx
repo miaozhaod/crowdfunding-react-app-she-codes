@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getAllProjects } from "../../services/getAllProjects";
 import Container from "../../components/common/Container";
 import Banner from "../../components/common/Banner";
+import RoundButton from "../../components/common/RoundButton";
 import GridThreeCol from "../../components/common/GridThreeCol";
 import UserProjectCard from "../../components/ProjectCard/UserProjectCard";
 import UserProfile from "../../components/UserProfile";
@@ -11,6 +12,7 @@ import "./ProfilePage.css";
 export default function ProfilePage() {
   const { id } = useParams();
   const [userProjects, setUserProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [content, setContent] = useState("projects");
 
   useEffect(() => {
@@ -21,10 +23,11 @@ export default function ProfilePage() {
           userProjects.push(item);
         }
       });
+      setLoading(false);
       setUserProjects(userProjects);
     });
   }, [id]);
-
+  console.log(userProjects);
   return (
     <>
       <Container bg={true} variant="banner">
@@ -51,14 +54,21 @@ export default function ProfilePage() {
             </h2>
           </div>
           {content === "projects" ? (
-            userProjects.length > 0 ? (
+            loading === true ? (
+              "Loading..."
+            ) : userProjects.length > 0 ? (
               <GridThreeCol>
                 {userProjects.map((project, index) => (
                   <UserProjectCard key={index} project={project} />
                 ))}
               </GridThreeCol>
             ) : (
-              "Loading..."
+              <div className="no-projects-found">
+                <p>No projects yet, crate one now!</p>
+                <Link to="/create-project">
+                  <RoundButton variant="primary">Create Project</RoundButton>
+                </Link>
+              </div>
             )
           ) : content === "profile" ? (
             <UserProfile userId={id} />
