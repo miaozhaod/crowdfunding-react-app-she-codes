@@ -23,6 +23,11 @@
   gap: 0.5rem;
 }
 
+.nav-authenticated {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
 .nav-avatar-image {
   border-radius: 999px;
   height: 2rem;

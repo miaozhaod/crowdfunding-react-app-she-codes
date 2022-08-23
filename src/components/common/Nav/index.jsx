@@ -44,12 +44,15 @@ export default function Nav() {
           ) : (
             <div className="menu_item_auth_group">
               <Link to={`/profile/${userId}`}>
-                <img
-                  src={navAvatar}
-                  alt={`${navUsername}`}
-                  onError={useDefaultAvatar}
-                  className="nav-avatar-image"
-                />
+                <div className="nav-authenticated">
+                  <img
+                    src={navAvatar}
+                    alt={`${navUsername}`}
+                    onError={useDefaultAvatar}
+                    className="nav-avatar-image"
+                  />
+                  {navUsername}
+                </div>
               </Link>
               <Link to="/create-project">
                 <RoundButton variant="primary">Create Project</RoundButton>
