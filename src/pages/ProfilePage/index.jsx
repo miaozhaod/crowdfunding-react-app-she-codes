@@ -6,7 +6,7 @@ import Banner from "../../components/common/Banner";
 import RoundButton from "../../components/common/RoundButton";
 import GridThreeCol from "../../components/common/GridThreeCol";
 import UserProjectCard from "../../components/ProjectCard/UserProjectCard";
-import UserProfile from "../../components/UserProfile";
+import UpdateUserProfileForm from "../../components/UpdateUserProfileForm";
 import "./ProfilePage.css";
 
 export default function ProfilePage() {
@@ -71,7 +71,7 @@ export default function ProfilePage() {
               </div>
             )
           ) : content === "profile" ? (
-            <UserProfile userId={id} />
+            <UpdateUserProfileForm userId={id} />
           ) : (
             ""
           )}
