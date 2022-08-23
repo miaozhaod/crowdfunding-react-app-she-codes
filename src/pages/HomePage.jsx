@@ -7,10 +7,11 @@ import ProjectCard from "../components/ProjectCard";
 
 export default function HomePage() {
   const [projectData, setProjectData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     getAllProjects().then(data => {
       setProjectData(data);
+      setLoading(false);
     });
   }, []);
 
@@ -22,7 +23,7 @@ export default function HomePage() {
         </Banner>
       </Container>
       <Container>
-        {projectData.length > 0 ? (
+        {loading === false ? (
           <GridThreeCol>
             {projectData.map((project, index) => (
               <ProjectCard key={index} project={project} />
