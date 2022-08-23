@@ -62,7 +62,7 @@ export default function UpdateProjectForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="create-project-form">
+    <form onSubmit={handleSubmit}>
       {projectDetails && (
         <>
           <Input

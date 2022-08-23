@@ -57,7 +57,7 @@ export default function CreatePledgeForm({ project_id }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="create-project-form">
+    <form onSubmit={handleSubmit}>
       {createPledgeFormInputFields.map((field, index) => {
         const { type, id, label, placeholder } = field;
         return (

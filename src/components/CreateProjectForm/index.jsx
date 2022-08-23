@@ -85,7 +85,7 @@ export default function CreateProjectForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="create-project-form">
+    <form onSubmit={handleSubmit}>
       {createProjectFormInputFields.map((field, index) => {
         const { type, id, label, placeholder } = field;
         return (
