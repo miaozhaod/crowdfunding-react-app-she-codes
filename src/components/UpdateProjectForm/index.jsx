@@ -44,8 +44,16 @@ export default function UpdateProjectForm() {
     ) {
       updateProjectById(id, token, projectDetails).then(data => {
         console.log("Update project response data: ... ", data);
-        setSubmitMessage("Yah! Project update successfully!");
-        setSubmitResult("success");
+        if (
+          data.detail &&
+          data.detail === "You do not have permission to perform this action."
+        ) {
+          setSubmitMessage("You do not have permission to update this project");
+          setSubmitResult("fail");
+        } else {
+          setSubmitMessage("Yah! Project update successfully!");
+          setSubmitResult("success");
+        }
       });
     } else {
       setSubmitMessage("Please enter all fields");
