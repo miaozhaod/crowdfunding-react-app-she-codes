@@ -27,7 +27,7 @@ export default function ProfilePage() {
       setUserProjects(userProjects);
     });
   }, [id]);
-  console.log(userProjects);
+
   return (
     <>
       <Container bg={true} variant="banner">
