@@ -26,7 +26,7 @@ export default function PledgeCard({ pledgeData }) {
       </div>
       <div>
         <p className="pledge-card-supporter">
-          {anonymous ? "Anonymous" : supporterName} pledged {amount}
+          {anonymous ? "Anonymous" : supporterName} pledged AU${amount}
         </p>
         <p className="pledge-card-comment">{comment}</p>
       </div>
