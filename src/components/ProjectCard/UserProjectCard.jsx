@@ -40,7 +40,7 @@ export default function ProjectCard({ project }) {
         <div className="project-title-n-pledge">
           <div>
             <h4>{title}</h4>
-            <p>{location ? location : "fetching..."}</p>
+            <p>{location ? location : "Loading..."}</p>
           </div>
           <div className="pledge-bar-base">
             <p className="pledge-bar-percentage-number">{pledgeStatus}%</p>

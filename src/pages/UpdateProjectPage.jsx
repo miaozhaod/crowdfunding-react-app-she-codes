@@ -20,7 +20,7 @@ export default function CreateProjectPage() {
       <Container bg={true} variant="banner">
         <Banner
           heading={
-            projectData ? `${projectData.title}` : "Fetching Project Name ..."
+            projectData ? `${projectData.title}` : "Loading Project Name ..."
           }
         >
           Update Project

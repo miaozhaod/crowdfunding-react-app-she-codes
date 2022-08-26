@@ -45,8 +45,8 @@ export default function ProjectCard({ project }) {
           </div>
         </div>
         <div className="project-owner-n-location">
-          <p>{ownerName ? ownerName : "fetching..."}</p>
-          <p>{location ? location : "fetching..."}</p>
+          <p>{ownerName ? ownerName : "Loading..."}</p>
+          <p>{location ? location : "Loading..."}</p>
         </div>
       </Link>
     </div>

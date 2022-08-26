@@ -30,8 +30,8 @@ export default function ProjectPage() {
     <>
       <Container variant="banner" bg={true}>
         <Banner variant="banner-tags" heading={title}>
-          <p>{ownerName ? ownerName : "fetching..."}</p>
-          <p>{location ? location : "fetching..."}</p>
+          <p>{ownerName ? ownerName : "Loading..."}</p>
+          <p>{location ? location : "Loading..."}</p>
         </Banner>
       </Container>
       <Container>
