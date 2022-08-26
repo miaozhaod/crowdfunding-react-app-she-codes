@@ -1,5 +1,6 @@
 # A crowdfunding project created as part of a React study from She Codes Program
 
+Repo Link at [Github](https://github.com/miaozhaod/crowdfunding-react-app-she-codes). \
 The project is deployed at [PixelFoto](https://pacific-reaches-34630.herokuapp.com/).
 
 ## The required screenshot submission can be found in the `screenshots` branch, under `screenshots` folder
