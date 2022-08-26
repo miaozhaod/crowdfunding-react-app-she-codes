@@ -8,6 +8,7 @@ export default function ProjectPageContent({ projectData }) {
   const { id, description, image, title, goal, date_due, is_open, pledges } =
     projectData;
 
+  const loginStatus = window.localStorage.getItem("login");
   let totalPledgesAmount;
   let numberOfUsersPledged;
   let leftDays;
@@ -67,7 +68,18 @@ export default function ProjectPageContent({ projectData }) {
             </div>
           </div>
           <div>
-            {leftDays > 0 && is_open ? (
+            {!loginStatus ? (
+              <Link to={`/login`}>
+                <SubmitButton
+                  variant="primary-dark"
+                  onClick={() => {
+                    window.localStorage.setItem("fromProjectId", id);
+                  }}
+                >
+                  Log in first to make a pledge!
+                </SubmitButton>
+              </Link>
+            ) : loginStatus && leftDays > 0 && is_open ? (
               <>
                 <Link to={`/create-pledge/${id}`}>
                   <SubmitButton variant="primary-dark">

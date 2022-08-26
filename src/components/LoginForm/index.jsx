@@ -13,6 +13,8 @@ export default function LoginForm() {
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitResult, setSubmitResult] = useState("");
 
+  const fromProjectID = window.localStorage.getItem("fromProjectId");
+
   const loginFormInputFields = [
     {
       type: "text",
@@ -58,7 +60,7 @@ export default function LoginForm() {
         window.localStorage.setItem("token", data.token);
         window.localStorage.setItem("user_id", data.id);
         window.localStorage.setItem("login", true);
-        navigate("/");
+        fromProjectID ? navigate(`/project/${fromProjectID}`) : navigate("/");
         window.location.reload();
       } else {
         const { non_field_errors } = data;
