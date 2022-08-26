@@ -3,6 +3,7 @@ import "./LoginForm.css";
 import { useNavigate } from "react-router-dom";
 import Input from "../common/Form/Input";
 import SubmitButton from "../common/Form/SubmitButton";
+import AuthPrompt from "../common/AuthPrompt";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -71,27 +72,34 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      {loginFormInputFields.map((field, index) => {
-        const { type, id, label, placeholder } = field;
-        return (
-          <Input
-            key={index}
-            type={type}
-            id={id}
-            label={label}
-            placeholder={placeholder}
-            onChange={handleChange}
-          />
-        );
-      })}
-      <SubmitButton
-        variant="primary"
-        submitMessage={submitMessage}
-        result={submitResult}
-      >
-        Login
-      </SubmitButton>
-    </form>
+    <div className="auth-form-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        {loginFormInputFields.map((field, index) => {
+          const { type, id, label, placeholder } = field;
+          return (
+            <Input
+              key={index}
+              type={type}
+              id={id}
+              label={label}
+              placeholder={placeholder}
+              onChange={handleChange}
+            />
+          );
+        })}
+        <SubmitButton
+          variant="primary"
+          submitMessage={submitMessage}
+          result={submitResult}
+        >
+          Login
+        </SubmitButton>
+      </form>
+      <AuthPrompt
+        text="Don't have an account?"
+        action="Sign up now"
+        link="/sign-up"
+      />
+    </div>
   );
 }

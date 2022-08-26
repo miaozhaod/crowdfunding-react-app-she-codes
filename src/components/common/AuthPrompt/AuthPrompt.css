@@ -1,0 +1,8 @@
+.auth-prompt {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.auth-prompt a {
+  color: #598edc;
+}
