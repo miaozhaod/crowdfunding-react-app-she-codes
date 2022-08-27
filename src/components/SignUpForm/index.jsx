@@ -103,6 +103,7 @@ export default function SignUpForm() {
               type={type}
               id={id}
               label={label}
+              src={credentials.avatar}
               placeholder={placeholder}
               onChange={handleChange}
             />
