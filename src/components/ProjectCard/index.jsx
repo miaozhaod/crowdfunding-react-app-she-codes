@@ -33,7 +33,9 @@ export default function ProjectCard({ project }) {
   return (
     <div className="project-card-container">
       <Link to={`/project/${id}`}>
-        <img src={image} alt={title} />
+        <div className="project-image-div">
+          <img src={image} alt={title} />
+        </div>
         <div className="project-title-n-pledge">
           <h3>{title}</h3>
           <div className="pledge-bar-base">
