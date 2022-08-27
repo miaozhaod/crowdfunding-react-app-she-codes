@@ -10,6 +10,7 @@ export default function Input({
   placeholder,
   src,
   alt,
+  onError,
   defaultValue,
   defaultChecked,
   onChange,
@@ -60,7 +61,7 @@ export default function Input({
         ) : id === "avatar" ? (
           <div className="avatar-container">
             <div className="input-avatar-container">
-              <img src={src ? src : Placeholder} alt={id} />
+              <img src={src ? src : Placeholder} alt={id} onError={onError} />
             </div>
             <input
               type={type}

@@ -3,6 +3,7 @@ import Input from "../common/Form/Input";
 import SubmitButton from "../common/Form/SubmitButton";
 import { getUserById } from "../../services/getUserById";
 import { updateProfileById } from "../../services/updateUserById";
+import { useDefaultAvatar } from "../../services/useDefaultAvatar";
 
 export default function UserProfile({ userId }) {
   const token = window.localStorage.getItem("token");
@@ -89,6 +90,7 @@ export default function UserProfile({ userId }) {
             defaultValue={profileData.avatar}
             onBlur={handleBlur}
             src={profileData.avatar}
+            onError={useDefaultAvatar}
           />
         </>
       )}

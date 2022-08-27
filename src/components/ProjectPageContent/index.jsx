@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./ProjectPageContent.css";
 import SubmitButton from "../common/Form/SubmitButton";
 import PledgeCard from "./PledgeCard";
+import { useImageErrorCard } from "../../services/useImageErrorCard";
 
 export default function ProjectPageContent({ projectData }) {
   const { id, description, image, title, goal, date_due, is_open, pledges } =
@@ -36,7 +37,7 @@ export default function ProjectPageContent({ projectData }) {
     <div className="project-page-content">
       <div className="project-page-content-project-details">
         <div className="project-page-content-project-details-img">
-          <img src={`${image}`} alt={title} />
+          <img src={`${image}`} alt={title} onError={useImageErrorCard} />
         </div>
         <div className="project-page-content-project-details-text">
           <div className="project-page-pledge-bar-base">

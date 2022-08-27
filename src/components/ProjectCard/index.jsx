@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getUserById } from "../../services/getUserById";
+import { useImageErrorCard } from "../../services/useImageErrorCard";
 import "./ProjectCard.css";
 import { getProjectById } from "../../services/getProjectById";
+
 export default function ProjectCard({ project }) {
   const { id, image, location, owner, title } = project;
   const [ownerName, setOwnerName] = useState("");
@@ -34,7 +36,7 @@ export default function ProjectCard({ project }) {
     <div className="project-card-container">
       <Link to={`/project/${id}`}>
         <div className="project-image-div">
-          <img src={image} alt={title} />
+          <img src={image} alt={title} onError={useImageErrorCard} />
         </div>
         <div className="project-title-n-pledge">
           <h3>{title}</h3>

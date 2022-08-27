@@ -71,6 +71,7 @@
 
 .modal-display {
   display: flex;
+  z-index: 999;
 }
 
 .modal-hidden {
