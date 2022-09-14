@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import SubmitButton from "../common/Form/SubmitButton";
-import "./UpdateProjectForm.css";
-import { getProjectById } from "../../services/getProjectById";
-import { updateProjectById } from "../../services/updateProjectById";
-import Input from "../common/Form/Input";
+import SubmitButton from "components/common/Form/SubmitButton";
+import Input from "components/common/Form/Input";
+import { getProjectById } from "services/getProjectById";
+import { updateProjectById } from "services/updateProjectById";
+import "./style.css";
 
 export default function UpdateProjectForm() {
   const { id } = useParams();

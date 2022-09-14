@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./SignUpForm.css";
+import "./style.css";
 import { useNavigate } from "react-router-dom";
-import Input from "../common/Form/Input";
-import SubmitButton from "../common/Form/SubmitButton";
-import AuthPrompt from "../common/AuthPrompt";
+import Input from "components/common/Form/Input";
+import SubmitButton from "components/common/Form/SubmitButton";
+import AuthPrompt from "components/common/AuthPrompt";
 
 export default function SignUpForm() {
   const navigate = useNavigate();

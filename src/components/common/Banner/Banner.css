@@ -15,9 +15,9 @@
 }
 
 .banner-tags p {
-  color: #7d7f83;
+  color: var(--grey-300);
   font-size: 14px;
-  border: 1px solid #7d7f83;
+  border: 1px solid var(--grey-300);
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
 }

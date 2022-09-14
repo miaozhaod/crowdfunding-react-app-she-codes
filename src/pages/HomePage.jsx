@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getAllProjects } from "../services/getAllProjects";
-import Banner from "../components/common/Banner";
-import Container from "../components/common/Container";
-import GridThreeCol from "../components/common/GridThreeCol";
-import ProjectCard from "../components/ProjectCard";
+import Banner from "components/common/Banner";
+import Container from "components/common/Container";
+import GridThreeCol from "components/common/GridThreeCol";
+import ProjectCard from "components/modules/Home/ProjectCard";
 
 export default function HomePage() {
   const [projectData, setProjectData] = useState([]);

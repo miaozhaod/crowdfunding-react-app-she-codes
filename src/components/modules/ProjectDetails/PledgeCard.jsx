@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import DefaultAvatar from "../../assets/img/default-avatar.svg";
-import { useDefaultAvatar } from "../../services/useDefaultAvatar";
-import { getUserById } from "../../services/getUserById";
+import DefaultAvatar from "assets/img/default-avatar.svg";
+import { useDefaultAvatar } from "services/useDefaultAvatar";
+import { getUserById } from "services/getUserById";
+
 export default function PledgeCard({ pledgeData }) {
   const { amount, anonymous, comment, supporter } = pledgeData;
   const [supporterName, setSupportorName] = useState("");

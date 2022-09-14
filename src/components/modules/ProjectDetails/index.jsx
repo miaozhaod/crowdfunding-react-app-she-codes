@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./ProjectPageContent.css";
-import SubmitButton from "../common/Form/SubmitButton";
+import SubmitButton from "components/common/Form/SubmitButton";
 import PledgeCard from "./PledgeCard";
-import { useImageErrorCard } from "../../services/useImageErrorCard";
+import { useImageErrorCard } from "services/useImageErrorCard";
+import "./style.css";
 
 export default function ProjectPageContent({ projectData }) {
   const { id, description, image, title, goal, date_due, is_open, pledges } =

@@ -1,14 +1,14 @@
 import React from "react";
-import Container from "../components/common/Container";
-import Banner from "../components/common/Banner";
-import SignUpForm from "../components/SignUpForm";
+import Container from "components/common/Container";
+import Banner from "components/common/Banner";
+import SignUpForm from "components/modules/SignUp";
 
 export default function SignUpPage() {
   const loginStatus = window.localStorage.getItem("login");
 
   return loginStatus ? (
     <Container bg={true} variant="banner">
-      <Banner heading="Already loggedin!">Welcome back 👐</Banner>
+      <Banner heading="Already logged in!">Welcome back 👐</Banner>
     </Container>
   ) : (
     <>

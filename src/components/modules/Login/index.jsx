@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./LoginForm.css";
 import { useNavigate } from "react-router-dom";
-import Input from "../common/Form/Input";
-import SubmitButton from "../common/Form/SubmitButton";
-import AuthPrompt from "../common/AuthPrompt";
-import { login } from "../../services/auth/login";
+import Input from "components/common/Form/Input";
+import SubmitButton from "components/common/Form/SubmitButton";
+import AuthPrompt from "components/common/AuthPrompt";
+import { login } from "services/auth/login";
+import "./style.css";
 
 export default function LoginForm() {
   const navigate = useNavigate();

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Container from "../components/common/Container";
-import Banner from "../components/common/Banner";
-import CreatePledgeForm from "../components/CreatePledgeForm";
-import { getProjectById } from "../services/getProjectById";
+import Container from "components/common/Container";
+import Banner from "components/common/Banner";
+import CreatePledgeForm from "components/modules/CreatePledge";
+import { getProjectById } from "services/getProjectById";
 
 export default function CreatePledgePage() {
   const { id } = useParams();

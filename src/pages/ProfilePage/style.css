@@ -19,6 +19,6 @@
 
 .active {
   padding-bottom: 0.75rem;
-  color: #357ec6;
-  border-bottom: 3px solid #598edc;
+  color: var(--primary-500);
+  border-bottom: 3px solid var(--primary-400);
 }

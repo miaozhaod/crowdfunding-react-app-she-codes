@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Input from "../common/Form/Input";
-import SubmitButton from "../common/Form/SubmitButton";
+import Input from "components/common/Form/Input";
+import SubmitButton from "components/common/Form/SubmitButton";
 import { createPledgeFormInputFields } from "./constants";
-import { createPledge } from "../../services/createPledge";
+import { createPledge } from "services/createPledge";
 
 export default function CreatePledgeForm({ project_id }) {
   const navigate = useNavigate();

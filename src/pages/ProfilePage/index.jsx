@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getAllProjects } from "../../services/getAllProjects";
-import Container from "../../components/common/Container";
-import Banner from "../../components/common/Banner";
-import RoundButton from "../../components/common/RoundButton";
-import GridThreeCol from "../../components/common/GridThreeCol";
-import UserProjectCard from "../../components/ProjectCard/UserProjectCard";
-import UpdateUserProfileForm from "../../components/UpdateUserProfileForm";
-import "./ProfilePage.css";
+import { getAllProjects } from "services/getAllProjects";
+import Container from "components/common/Container";
+import Banner from "components/common/Banner";
+import RoundButton from "components/common/RoundButton";
+import GridThreeCol from "components/common/GridThreeCol";
+import UserProjectCard from "components/modules/Profile/ProjectManageCard";
+import UpdateProfileForm from "components/modules/Profile/UpdateProfileForm";
+import "./style.css";
 
 export default function ProfilePage() {
   const { id } = useParams();
@@ -71,7 +71,7 @@ export default function ProfilePage() {
               </div>
             )
           ) : content === "profile" ? (
-            <UpdateUserProfileForm userId={id} />
+            <UpdateProfileForm userId={id} />
           ) : (
             ""
           )}
