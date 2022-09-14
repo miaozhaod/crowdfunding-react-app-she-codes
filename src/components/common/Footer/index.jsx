@@ -62,9 +62,6 @@ export default function Footer() {
         <div className="breakline"></div>
         <div className="footer-copyright">
           <p>{`© ${new Date().getFullYear()} PixelFoto. All rights reserved.`}</p>
-          <p>
-            <span>XX</span> exhibitions held through PixelFoto
-          </p>
         </div>
       </Container>
     </footer>
