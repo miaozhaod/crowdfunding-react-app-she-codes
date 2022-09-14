@@ -28,7 +28,12 @@ export default function Nav() {
     <nav>
       <Container variant="nav">
         <Link to="/">
-          <img src={Logo} alt="PIXELFOTO_logo" className="header-logo" />
+          <img
+            src={Logo}
+            alt="PIXELFOTO_logo"
+            className="header-logo"
+            onError={useDefaultAvatar}
+          />
         </Link>
         <img
           src={MenuIcon}

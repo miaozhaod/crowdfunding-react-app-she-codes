@@ -33,6 +33,67 @@ export default function ProjectPageContent({ projectData }) {
     );
   }
 
+  const renderAction = (leftDays, is_open, pledgesStatus) => {
+    console.log("pledgesStatus: ", pledgesStatus);
+    if (!is_open) {
+      return (
+        <p>Thanks for your interest, but the author has closed the project</p>
+      );
+    }
+    if (is_open) {
+      if (leftDays === 0) {
+        return (
+          <>
+            <Link to={`/create-pledge/${id}`}>
+              <SubmitButton variant="primary-dark">Pledge now!</SubmitButton>
+            </Link>
+            <p>Last day to pledge!</p>
+          </>
+        );
+      }
+
+      if (leftDays > 0) {
+        if (pledgesStatus > 0 || !pledgesStatus) {
+          return (
+            <>
+              <Link to={`/create-pledge/${id}`}>
+                <SubmitButton variant="primary-dark">Pledge Now!</SubmitButton>
+              </Link>
+              <p>
+                This exhibition will only be held if it reaches its goal by the
+                end of {new Date(date_due).toLocaleDateString()}
+              </p>
+            </>
+          );
+        }
+        if (pledgesStatus <= 0) {
+          return (
+            <>
+              <Link to={`/create-pledge/${id}`}>
+                <SubmitButton variant="primary-dark">
+                  Still pledge !
+                </SubmitButton>
+              </Link>
+              <p>
+                This exhibition has reached their goal, you can still pledge for
+                it, or have a look to support other photographers!
+              </p>
+            </>
+          );
+        }
+      }
+    }
+
+    if (leftDays < 0) {
+      return (
+        <p>
+          Thanks for your interest, but this project has due on{" "}
+          {new Date(date_due).toLocaleDateString()}
+        </p>
+      );
+    }
+  };
+
   return (
     <div className="project-page-content">
       <div className="project-page-content-project-details">
@@ -69,40 +130,7 @@ export default function ProjectPageContent({ projectData }) {
             </div>
           </div>
           <div>
-            {!loginStatus ? (
-              <Link to={`/login`}>
-                <SubmitButton
-                  variant="primary-dark"
-                  onClick={() => {
-                    window.localStorage.setItem("fromProjectId", id);
-                  }}
-                >
-                  Log in first to make a pledge!
-                </SubmitButton>
-              </Link>
-            ) : loginStatus && leftDays > 0 && is_open ? (
-              <>
-                <Link to={`/create-pledge/${id}`}>
-                  <SubmitButton variant="primary-dark">
-                    Pledge Now!
-                  </SubmitButton>
-                </Link>
-
-                <p>
-                  This exhibition will only be held if it reaches its goal by
-                  the end of {new Date(date_due).toLocaleDateString()}
-                </p>
-              </>
-            ) : !is_open ? (
-              <p>
-                Thanks for your interest, but the author has closed the project
-              </p>
-            ) : (
-              <p>
-                Thanks for your interest, but this project has due on{" "}
-                {new Date(date_due).toLocaleDateString()}
-              </p>
-            )}
+            {renderAction(leftDays, is_open, goal - totalPledgesAmount)}
           </div>
         </div>
       </div>
@@ -113,8 +141,8 @@ export default function ProjectPageContent({ projectData }) {
       <div className="project-page-content-pledges">
         <h3>Pledges Received</h3>
         <div className="project-page-content-pledges-cards">
-          {projectData.pledges
-            ? projectData.pledges.map((pledgeData, index) => {
+          {pledges
+            ? pledges.map((pledgeData, index) => {
                 return <PledgeCard key={index} pledgeData={pledgeData} />;
               })
             : "No Pledges"}
