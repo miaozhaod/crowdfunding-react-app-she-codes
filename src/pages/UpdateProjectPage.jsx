@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Container from "../components/common/Container";
 import Banner from "../components/common/Banner";
-import UpdateProjectForm from "../components/UpdateProjectForm";
+import UpdateProjectForm from "../components/modules/UpdateProject";
 import { getProjectById } from "../services/getProjectById";
 
 export default function CreateProjectPage() {

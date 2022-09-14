@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getUserById } from "../../services/getUserById";
-import { useImageErrorCard } from "../../services/useImageErrorCard";
-import "./ProjectCard.css";
-import { getProjectById } from "../../services/getProjectById";
+import { getUserById } from "services/getUserById";
+import { useImageErrorCard } from "services/useImageErrorCard";
+import { getProjectById } from "services/getProjectById";
+import "./style.css";
 
 export default function ProjectCard({ project }) {
   const { id, image, location, owner, title } = project;

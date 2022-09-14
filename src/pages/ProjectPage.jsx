@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProjectById } from "../services/getProjectById";
-import { getUserById } from "../services/getUserById";
-import Container from "../components/common/Container";
-import Banner from "../components/common/Banner";
-import ProjectPageContent from "../components/ProjectPageContent";
+import { getProjectById } from "services/getProjectById";
+import { getUserById } from "services/getUserById";
+import Container from "components/common/Container";
+import Banner from "components/common/Banner";
+import ProjectPageContent from "components/modules/ProjectDetails";
 
 export default function ProjectPage() {
   const [projectData, setProjectData] = useState({});

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import SubmitButton from "../common/Form/SubmitButton";
-import { getProjectById } from "../../services/getProjectById";
-import { useImageErrorCard } from "../../services/useImageErrorCard";
-import "./ProjectCard.css";
-import { deleteProjectById } from "../../services/deleteProjectById";
+import SubmitButton from "components/common/Form/SubmitButton";
+import { getProjectById } from "services/getProjectById";
+import { useImageErrorCard } from "services/useImageErrorCard";
+import { deleteProjectById } from "services/deleteProjectById";
+import "./style.css";
 
 export default function ProjectCard({ project }) {
   const { id, image, location, title } = project;

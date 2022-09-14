@@ -1,7 +1,7 @@
 import React from "react";
-import Container from "../components/common/Container";
-import Banner from "../components/common/Banner";
-import LoginForm from "../components/LoginForm";
+import Container from "components/common/Container";
+import Banner from "components/common/Banner";
+import LoginForm from "components/modules/Login";
 
 export default function LoginPage() {
   const loginStatus = window.localStorage.getItem("login");

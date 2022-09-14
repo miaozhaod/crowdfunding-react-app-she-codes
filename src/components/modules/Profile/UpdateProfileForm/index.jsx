@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Input from "../common/Form/Input";
-import SubmitButton from "../common/Form/SubmitButton";
-import { getUserById } from "../../services/getUserById";
-import { updateProfileById } from "../../services/updateUserById";
-import { useDefaultAvatar } from "../../services/useDefaultAvatar";
+import Input from "../../../common/Form/Input";
+import SubmitButton from "../../../common/Form/SubmitButton";
+import { getUserById } from "../../../../services/getUserById";
+import { updateProfileById } from "../../../../services/updateUserById";
+import { useDefaultAvatar } from "../../../../services/useDefaultAvatar";
 
-export default function UserProfile({ userId }) {
+export default function UpdateProfile({ userId }) {
   const token = window.localStorage.getItem("token");
   const [loading, setLoading] = useState(true);
   const [profileData, setProfileData] = useState();

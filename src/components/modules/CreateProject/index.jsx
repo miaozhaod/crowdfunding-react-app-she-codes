@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "../common/Form/Input";
-import LabelSelector from "../common/Form/LabelSelector";
-import SubmitButton from "../common/Form/SubmitButton";
+import Input from "components/common/Form/Input";
+import LabelSelector from "components/common/Form/LabelSelector";
+import SubmitButton from "components/common/Form/SubmitButton";
 import {
   createProjectFormInputFields,
   initialLocationStates,
 } from "./constants";
-import { createProject } from "../../services/createProject";
-import "./CreateProjectForm.css";
+import { createProject } from "services/createProject";
+import "./style.css";
 
 export default function CreateProjectForm() {
   const navigate = useNavigate();

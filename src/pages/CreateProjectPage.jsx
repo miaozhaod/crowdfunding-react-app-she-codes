@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Container from "../components/common/Container";
-import Banner from "../components/common/Banner";
-import CreateProjectForm from "../components/CreateProjectForm";
+import Container from "components/common/Container";
+import Banner from "components/common/Banner";
+import CreateProjectForm from "components/modules/CreateProject";
 
 export default function CreateProjectPage() {
   const loginStatus = window.localStorage.getItem("login");
