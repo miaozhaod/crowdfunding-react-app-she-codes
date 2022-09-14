@@ -6,11 +6,13 @@ import { useDefaultAvatar } from "../../../services/useDefaultAvatar";
 import Container from "../Container";
 import RoundButton from "../RoundButton";
 import "./Nav.css";
+import MenuIcon from "../../../assets/icons/hamburg-menu.svg";
 
 export default function Nav() {
   const navigate = useNavigate();
   const [navAvatar, setNavAvatar] = useState("");
   const [navUsername, setNavUsername] = useState("");
+  const [mobileMenu, setMobileMenu] = useState(false);
   const loginStatus = window.localStorage.getItem("login");
   const userId = window.localStorage.getItem("user_id");
 
@@ -33,8 +35,89 @@ export default function Nav() {
             onError={useDefaultAvatar}
           />
         </Link>
+        <img
+          src={MenuIcon}
+          alt="menu"
+          onClick={() => {
+            setMobileMenu(!mobileMenu);
+          }}
+          className="mobile-menu-control-button"
+        />
+        {/* nav on mobile */}
+        <div
+          className={`${
+            mobileMenu
+              ? "mobile-menu_items_wrapper"
+              : "mobile-menu_items_wrapper-hidden"
+          }`}
+        >
+          <Link
+            to="/"
+            className="menu_item_nav"
+            onClick={() => {
+              setMobileMenu(false);
+            }}
+          >
+            Explore Exhibitions
+          </Link>
+          {!loginStatus ? (
+            <div className="mobile-menu_item_auth_group">
+              <Link
+                to="/login"
+                onClick={() => {
+                  setMobileMenu(false);
+                }}
+              >
+                <RoundButton variant="primary">Login</RoundButton>
+              </Link>
+              <Link
+                to="/sign-up"
+                onClick={() => {
+                  setMobileMenu(false);
+                }}
+              >
+                <RoundButton variant="secondary">Sign up</RoundButton>
+              </Link>
+            </div>
+          ) : (
+            <div className="mobile-menu_item_auth_group">
+              <Link
+                to={`/profile/${userId}`}
+                className="menu_item_nav"
+                onClick={() => {
+                  setMobileMenu(false);
+                }}
+              >
+                {navUsername} - Profile
+              </Link>
+              <Link
+                to="/create-project"
+                className="menu_item_nav"
+                onClick={() => {
+                  setMobileMenu(false);
+                }}
+              >
+                Create Project
+              </Link>
+              <p
+                variant="secondary"
+                onClick={() => {
+                  setMobileMenu(false);
+                  localStorage.clear();
+                  navigate("/");
+                  window.location.reload();
+                }}
+                className="menu_item_nav"
+                style={{ cursor: "pointer" }}
+              >
+                Log out
+              </p>
+            </div>
+          )}
+        </div>
+        {/* nav on web */}
         <div className="menu_items_wrapper">
-          <Link to="/" className="menu_item_home">
+          <Link to="/" className="menu_item_nav">
             Explore Exhibitions
           </Link>
           {!loginStatus ? (

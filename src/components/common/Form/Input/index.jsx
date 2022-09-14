@@ -10,6 +10,7 @@ export default function Input({
   placeholder,
   src,
   alt,
+  onError,
   defaultValue,
   defaultChecked,
   onChange,
@@ -57,6 +58,21 @@ export default function Input({
               className={`${variant} === "single_underline" ? "single_underline" : "}`}
             />
           </>
+        ) : id === "avatar" ? (
+          <div className="avatar-container">
+            <div className="input-avatar-container">
+              <img src={src ? src : Placeholder} alt={id} onError={onError} />
+            </div>
+            <input
+              type={type}
+              id={id}
+              onChange={onChange}
+              onBlur={onBlur}
+              placeholder={placeholder}
+              defaultValue={defaultValue}
+              className={`${variant} === "single_underline" ? "single_underline" : "}`}
+            />
+          </div>
         ) : (
           <input
             type={type}

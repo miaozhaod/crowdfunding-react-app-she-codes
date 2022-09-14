@@ -4,14 +4,25 @@ import Banner from "../components/common/Banner";
 import LoginForm from "../components/LoginForm";
 
 export default function LoginPage() {
-  return (
-    <>
-      <Container bg={true} variant="banner">
-        <Banner heading="Login Now!">Welcome back 👐</Banner>
-      </Container>
-      <Container>
-        <LoginForm />
-      </Container>
-    </>
-  );
+  const loginStatus = window.localStorage.getItem("login");
+  if (loginStatus) {
+    return (
+      <>
+        <Container bg={true} variant="banner">
+          <Banner heading="Already Loggedin!">Welcome back 👐</Banner>
+        </Container>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Container bg={true} variant="banner">
+          <Banner heading="Login Now!">Welcome back 👐</Banner>
+        </Container>
+        <Container>
+          <LoginForm />
+        </Container>
+      </>
+    );
+  }
 }

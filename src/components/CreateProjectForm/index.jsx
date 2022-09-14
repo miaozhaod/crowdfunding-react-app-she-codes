@@ -7,6 +7,7 @@ import {
   createProjectFormInputFields,
   initialLocationStates,
 } from "./constants";
+import { createProject } from "../../services/createProject";
 import "./CreateProjectForm.css";
 
 export default function CreateProjectForm() {
@@ -47,18 +48,6 @@ export default function CreateProjectForm() {
     setLocationLabels(newLocationStates);
   };
 
-  const postData = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/projects/`, {
-      method: "POST",
-      headers: {
-        Authorization: `Token ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(projectDetails),
-    });
-    return response.json();
-  };
-
   const handleSubmit = async event => {
     event.preventDefault();
     console.log("Create project with projectDetails: ", projectDetails);
@@ -70,14 +59,15 @@ export default function CreateProjectForm() {
       projectDetails.image &&
       projectDetails.date_due
     ) {
-      const data = await postData();
-      const { id } = data;
-      console.log("Create project response data: ... ", data);
-      setSubmitMessage(
-        "Yah! Project created successfully, we're directing you to your poject page ..."
-      );
-      setSubmitResult("success");
-      navigate(`/project/${id}`);
+      createProject(token, projectDetails).then(data => {
+        const { id } = data;
+        console.log("Create project response data: ... ", data);
+        setSubmitMessage(
+          "Yah! Project created successfully, we're directing you to your poject page ..."
+        );
+        setSubmitResult("success");
+        navigate(`/project/${id}`);
+      });
     } else {
       setSubmitMessage("Please enter all fields");
       setSubmitResult("fail");

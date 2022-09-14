@@ -3,9 +3,11 @@ import Input from "../common/Form/Input";
 import SubmitButton from "../common/Form/SubmitButton";
 import { getUserById } from "../../services/getUserById";
 import { updateProfileById } from "../../services/updateUserById";
+import { useDefaultAvatar } from "../../services/useDefaultAvatar";
 
 export default function UserProfile({ userId }) {
   const token = window.localStorage.getItem("token");
+  const [loading, setLoading] = useState(true);
   const [profileData, setProfileData] = useState();
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitResult, setSubmitResult] = useState("");
@@ -13,6 +15,7 @@ export default function UserProfile({ userId }) {
   useEffect(() => {
     getUserById(userId).then(data => {
       setProfileData(data);
+      setLoading(false);
     });
   }, [userId]);
 
@@ -49,7 +52,9 @@ export default function UserProfile({ userId }) {
     }
   };
 
-  return (
+  return loading ? (
+    "Loading..."
+  ) : (
     <form onSubmit={handleSubmit}>
       {profileData && (
         <>
@@ -85,6 +90,7 @@ export default function UserProfile({ userId }) {
             defaultValue={profileData.avatar}
             onBlur={handleBlur}
             src={profileData.avatar}
+            onError={useDefaultAvatar}
           />
         </>
       )}

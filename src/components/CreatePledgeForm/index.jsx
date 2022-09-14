@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Input from "../common/Form/Input";
 import SubmitButton from "../common/Form/SubmitButton";
 import { createPledgeFormInputFields } from "./constants";
+import { createPledge } from "../../services/createPledge";
 
 export default function CreatePledgeForm({ project_id }) {
   const navigate = useNavigate();
   const token = window.localStorage.getItem("token");
+  const loginStatus = window.localStorage.getItem("login");
   const [pledgeDetails, setPledgeDetails] = useState({
     amount: "",
     comment: "",
@@ -27,36 +29,26 @@ export default function CreatePledgeForm({ project_id }) {
       : (passValue = event.target.value);
     setPledgeDetails({ ...pledgeDetails, [id]: passValue });
   };
-  const postData = async () => {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/pledges/`, {
-      method: "POST",
-      headers: {
-        Authorization: `Token ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(pledgeDetails),
-    });
-    return response.json();
-  };
 
   const handleSubmit = async event => {
     event.preventDefault();
     console.log("Create pledge with pledgeDetails: ", pledgeDetails);
     if (pledgeDetails.amount && pledgeDetails.comment) {
-      const data = await postData();
-      console.log("Create pledge response data: ... ", data);
-      setSubmitMessage(
-        "Yah! Pledge created successfully, we're directing you to the poject page ..."
-      );
-      setSubmitResult("success");
-      navigate(`/project/${project_id}`);
+      createPledge(token, pledgeDetails).then(data => {
+        console.log("Create pledge response data: ... ", data);
+        setSubmitMessage(
+          "Yah! Pledge created successfully, we're directing you to the poject page ..."
+        );
+        setSubmitResult("success");
+        navigate(`/project/${project_id}`);
+      });
     } else {
       setSubmitMessage("Please enter all fields");
       setSubmitResult("fail");
     }
   };
 
-  return (
+  return loginStatus ? (
     <form onSubmit={handleSubmit}>
       {createPledgeFormInputFields.map((field, index) => {
         const { type, id, label, placeholder } = field;
@@ -80,5 +72,16 @@ export default function CreatePledgeForm({ project_id }) {
         Pledge Now !
       </SubmitButton>
     </form>
+  ) : (
+    <Link to={`/login`}>
+      <SubmitButton
+        variant="primary-dark"
+        onClick={() => {
+          window.localStorage.setItem("fromProjectId", project_id);
+        }}
+      >
+        Log in first to make a pledge!
+      </SubmitButton>
+    </Link>
   );
 }

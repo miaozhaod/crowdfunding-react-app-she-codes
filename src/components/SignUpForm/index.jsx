@@ -3,6 +3,7 @@ import "./SignUpForm.css";
 import { useNavigate } from "react-router-dom";
 import Input from "../common/Form/Input";
 import SubmitButton from "../common/Form/SubmitButton";
+import AuthPrompt from "../common/AuthPrompt";
 
 export default function SignUpForm() {
   const navigate = useNavigate();
@@ -92,27 +93,35 @@ export default function SignUpForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      {signUpFormInputFields.map((field, index) => {
-        const { type, id, label, placeholder } = field;
-        return (
-          <Input
-            key={index}
-            type={type}
-            id={id}
-            label={label}
-            placeholder={placeholder}
-            onChange={handleChange}
-          />
-        );
-      })}
-      <SubmitButton
-        variant="primary"
-        submitMessage={submitMessage}
-        result={submitResult}
-      >
-        Sign up
-      </SubmitButton>
-    </form>
+    <div className="auth-form-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        {signUpFormInputFields.map((field, index) => {
+          const { type, id, label, placeholder } = field;
+          return (
+            <Input
+              key={index}
+              type={type}
+              id={id}
+              label={label}
+              src={credentials.avatar}
+              placeholder={placeholder}
+              onChange={handleChange}
+            />
+          );
+        })}
+        <SubmitButton
+          variant="primary"
+          submitMessage={submitMessage}
+          result={submitResult}
+        >
+          Sign up
+        </SubmitButton>
+      </form>
+      <AuthPrompt
+        text="Already have an account?"
+        action="Login now"
+        link="/login"
+      />
+    </div>
   );
 }

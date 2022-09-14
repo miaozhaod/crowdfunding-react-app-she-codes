@@ -64,7 +64,7 @@ export default function ProfilePage() {
               </GridThreeCol>
             ) : (
               <div className="no-projects-found">
-                <p>No projects yet, crate one now!</p>
+                <p>No projects yet, create one now!</p>
                 <Link to="/create-project">
                   <RoundButton variant="primary">Create Project</RoundButton>
                 </Link>

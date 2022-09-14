@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SubmitButton from "../common/Form/SubmitButton";
 import { getProjectById } from "../../services/getProjectById";
+import { useImageErrorCard } from "../../services/useImageErrorCard";
 import "./ProjectCard.css";
 import { deleteProjectById } from "../../services/deleteProjectById";
 
@@ -36,11 +37,13 @@ export default function ProjectCard({ project }) {
   return (
     <>
       <div className="project-card-container">
-        <img src={image} alt={title} />
+        <div className="project-image-div">
+          <img src={image} alt={title} onError={useImageErrorCard} />
+        </div>
         <div className="project-title-n-pledge">
           <div>
             <h4>{title}</h4>
-            <p>{location ? location : "fetching..."}</p>
+            <p>{location ? location : "Loading..."}</p>
           </div>
           <div className="pledge-bar-base">
             <p className="pledge-bar-percentage-number">{pledgeStatus}%</p>

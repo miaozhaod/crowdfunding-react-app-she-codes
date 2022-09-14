@@ -3,6 +3,8 @@ import "./LoginForm.css";
 import { useNavigate } from "react-router-dom";
 import Input from "../common/Form/Input";
 import SubmitButton from "../common/Form/SubmitButton";
+import AuthPrompt from "../common/AuthPrompt";
+import { login } from "../../services/auth/login";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -12,6 +14,8 @@ export default function LoginForm() {
   });
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitResult, setSubmitResult] = useState("");
+
+  const fromProjectID = window.localStorage.getItem("fromProjectId");
 
   const loginFormInputFields = [
     {
@@ -33,63 +37,57 @@ export default function LoginForm() {
     setCredentials({ ...credentials, [id]: value });
   };
 
-  const postData = async () => {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api-token-auth/`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      }
-    );
-    return response.json();
-  };
-
   const handleSubmit = async event => {
     event.preventDefault();
     console.log("Loggin in with credentials: ", credentials);
 
     if (credentials.username && credentials.password) {
-      const data = await postData();
-      console.log("login response data: ... ", data);
-      if (data.token) {
-        window.localStorage.setItem("token", data.token);
-        window.localStorage.setItem("user_id", data.id);
-        window.localStorage.setItem("login", true);
-        navigate("/");
-        window.location.reload();
-      } else {
-        const { non_field_errors } = data;
-        setSubmitMessage(non_field_errors[0]);
-        setSubmitResult("fail");
-      }
+      login(credentials).then(data => {
+        console.log("login response data: ... ", data);
+        if (data.token) {
+          window.localStorage.setItem("token", data.token);
+          window.localStorage.setItem("user_id", data.id);
+          window.localStorage.setItem("login", true);
+          fromProjectID ? navigate(`/project/${fromProjectID}`) : navigate("/");
+          window.location.reload();
+        } else {
+          const { non_field_errors } = data;
+          setSubmitMessage(non_field_errors[0]);
+          setSubmitResult("fail");
+        }
+      });
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      {loginFormInputFields.map((field, index) => {
-        const { type, id, label, placeholder } = field;
-        return (
-          <Input
-            key={index}
-            type={type}
-            id={id}
-            label={label}
-            placeholder={placeholder}
-            onChange={handleChange}
-          />
-        );
-      })}
-      <SubmitButton
-        variant="primary"
-        submitMessage={submitMessage}
-        result={submitResult}
-      >
-        Login
-      </SubmitButton>
-    </form>
+    <div className="auth-form-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        {loginFormInputFields.map((field, index) => {
+          const { type, id, label, placeholder } = field;
+          return (
+            <Input
+              key={index}
+              type={type}
+              id={id}
+              label={label}
+              placeholder={placeholder}
+              onChange={handleChange}
+            />
+          );
+        })}
+        <SubmitButton
+          variant="primary"
+          submitMessage={submitMessage}
+          result={submitResult}
+        >
+          Login
+        </SubmitButton>
+      </form>
+      <AuthPrompt
+        text="Don't have an account?"
+        action="Sign up now"
+        link="/sign-up"
+      />
+    </div>
   );
 }
