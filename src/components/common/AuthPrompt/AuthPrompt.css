@@ -4,5 +4,5 @@
 }
 
 .auth-prompt a {
-  color: #598edc;
+  color: var(--primary-400);
 }

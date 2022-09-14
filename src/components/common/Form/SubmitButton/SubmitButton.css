@@ -3,7 +3,7 @@
   text-transform: capitalize;
   width: fit-content;
   padding: 0.65rem 1.25rem;
-  border: 1px solid #598edc;
+  border: 1px solid var(--primary-400);
   border-radius: 10px;
   transition: all 0.5s;
   width: 100%;
@@ -13,35 +13,35 @@
 }
 
 .primary {
-  background-color: #598edc;
-  color: #fff;
+  background-color: var(--primary-400);
+  color: var(--white);
 }
 
 .primary-dark {
-  background-color: #235d90;
-  color: #fff;
+  background-color: var(--primary-700);
+  color: var(--white);
 }
 .primary-dark a {
-  color: #fff;
+  color: var(--white);
 }
 
 .danger {
-  background-color: #cb504c;
-  color: #fff;
-  border: #cb504c;
+  background-color: var(--alert-danger);
+  color: var(--white);
+  border: var(--alert-danger);
 }
 .secondary {
-  background-color: #fff;
-  color: #598edc;
+  background-color: var(--white);
+  color: var(--primary-400);
 }
 
 .submit-message {
   margin-top: 0.5rem;
 }
 .success {
-  color: #5f825f;
+  color: var(--alert-success);
 }
 
 .fail {
-  color: #cb504c;
+  color: var(--alert-danger);
 }

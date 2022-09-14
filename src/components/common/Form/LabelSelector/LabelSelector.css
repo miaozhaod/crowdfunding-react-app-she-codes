@@ -1,12 +1,12 @@
 .label-selector {
-  background-color: #c7c8ca;
+  background-color: var(--grey-200);
   padding: 0.5rem 1rem;
   border-radius: 999px;
   width: fit-content;
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
 }
 
 .selected {
-  background-color: #598edc;
+  background-color: var(--primary-400);
 }

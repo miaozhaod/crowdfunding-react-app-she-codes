@@ -3,7 +3,7 @@
   text-transform: capitalize;
   width: fit-content;
   padding: 0.65rem 1.25rem;
-  border: 1px solid #598edc;
+  border: 1px solid var(--primary-400);
   border-radius: 999px;
   transition: all 0.5s;
 }
@@ -12,11 +12,11 @@
 }
 
 .primary {
-  background-color: #598edc;
-  color: #fff;
+  background-color: var(--primary-400);
+  color: var(--white);
 }
 
 .secondary {
-  background-color: #fff;
-  color: #598edc;
+  background-color: var(--white);
+  color: var(--primary-400);
 }
