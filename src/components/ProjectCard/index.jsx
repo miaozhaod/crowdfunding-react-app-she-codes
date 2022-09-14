@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getUserById } from "../../services/getUserById";
+import { getProjectById } from "../../services/getProjectById";
 import "./ProjectCard.css";
 
 export default function ProjectCard({ project }) {
@@ -15,10 +16,7 @@ export default function ProjectCard({ project }) {
   }, [owner]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`)
-      .then(res => {
-        return res.json();
-      })
+    getProjectById(id)
       .then(data => {
         const { goal, pledges } = data;
         let pledgeNumberArr = [];
@@ -45,7 +43,7 @@ export default function ProjectCard({ project }) {
             <p className="pledge-bar-percentage-number">{pledgeStatus}%</p>
             <div
               className="pledge-bar-percentage-bar"
-              style={{ width: `${pledgeStatus}%` }} // better way?
+              style={{ width: `${pledgeStatus}%` }}
             ></div>
           </div>
         </div>
