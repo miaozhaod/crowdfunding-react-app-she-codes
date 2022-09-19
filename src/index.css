@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   /* brand primary colors */
   --primary-100: #c8f1f5;
@@ -67,20 +67,23 @@ code {
   box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Montserrat", sans-serif;
+h1 {
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Raleway", sans-serif;
 }
 
+h2,
+h3,
+h4,
 h5,
 h6,
 p,
 span,
 a,
-label {
-  font-family: "Nunito", sans-serif;
+label,
+button {
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Lato", sans-serif;
 }
 
 h1,
@@ -92,13 +95,17 @@ h6,
 p,
 span,
 a,
-label {
+label,
+button {
   margin-top: 0;
   margin-bottom: 0;
   color: var(--charcoal);
   text-decoration: none;
 }
 
+h1 {
+  font-size: 64px;
+}
 .auth-form-container {
   width: 500px;
 }
